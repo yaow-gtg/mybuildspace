@@ -5,13 +5,14 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-accent: #7c3aed;
-  --color-accent-light: #a78bfa;
+  --color-accent: #38bdf8;
+  --color-accent-light: #7dd3fc;
+  --color-accent-dark: #0ea5e9;
   --animate-float: float 6s ease-in-out infinite;
 }
 
 :root {
-  --background: #07071c;
+  --background: #0f172a;
   --foreground: #f1f5f9;
 }
 
@@ -101,16 +102,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #07071c;
+  background: #0f172a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #7c3aed;
+  background: #38bdf8;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a78bfa;
+  background: #7dd3fc;
 }
 
 .glass {

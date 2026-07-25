@@ -129,7 +129,7 @@ function TechIcon({ tech }: { tech: Tech }) {
       <div className="w-11 h-11 md:w-12 md:h-12 flex items-center justify-center text-3xl md:text-4xl">
         <Icon className="w-full h-full" style={{ maxWidth: '100%', maxHeight: '100%' }} />
       </div>
-      <span className="text-xs font-medium text-zinc-400">{tech.name}</span>
+      <span className="text-xs font-medium text-zinc-300">{tech.name}</span>
     </div>
   )
 }
