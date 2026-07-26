@@ -13,28 +13,32 @@ export default function Home() {
       <StarField />
 
       {/* Hero */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-4">
-        <div className="flex flex-col items-center">
-          <ProfileAvatar />
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mt-8 text-white text-center leading-tight">
-            Farhan Ridho Illahi
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl text-zinc-300 mt-4 max-w-xl text-center">
-            Computer Engineering Student & Fullstack Developer. Helping people through innovative and solution driven digital solutions
-          </p>
-          <div className="flex gap-4 mt-8">
-            <a
-              href="#projects"
-              className="px-6 py-3 bg-accent hover:bg-accent-dark rounded-full transition-all text-background font-medium text-sm md:text-base"
-            >
-              View Projects
-            </a>
-            <a
-              href="#about"
-              className="px-6 py-3 border border-zinc-600 hover:border-accent rounded-full transition-all text-zinc-300 font-medium text-sm md:text-base"
-            >
-              About Me
-            </a>
+      <section className="relative min-h-screen flex items-center justify-center px-4">
+        <div className="w-full max-w-5xl flex flex-col-reverse md:flex-row items-start justify-between gap-8">
+          <div className="flex-1">
+            <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">
+              Farhan Ridho Illahi
+            </h1>
+            <p className="text-base md:text-lg text-zinc-300 mt-4 max-w-xl text-left">
+              Computer Engineering Student & Fullstack Developer. Helping people through innovative and solution driven digital solutions
+            </p>
+            <div className="flex justify-start gap-4 mt-8">
+              <a
+                href="#projects"
+                className="px-6 py-3 bg-accent hover:bg-accent-dark rounded-full transition-all text-background font-medium text-sm md:text-base"
+              >
+                View Projects
+              </a>
+              <a
+                href="#about"
+                className="px-6 py-3 border border-zinc-600 hover:border-accent rounded-full transition-all text-zinc-300 font-medium text-sm md:text-base"
+              >
+                About Me
+              </a>
+            </div>
+          </div>
+          <div className="flex-shrink-0">
+            <ProfileAvatar />
           </div>
         </div>
       </section>
@@ -74,7 +78,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 text-white">
               Projects
             </h2>
-            <ProjectsSection />
+            <ProjectsSection limit={2} showSeeAll />
           </div>
         </ScrollReveal>
       </section>

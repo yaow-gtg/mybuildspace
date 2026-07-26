@@ -4,11 +4,14 @@ import { useRef, useMemo, type ComponentType } from 'react'
 import {
   SiReact,
   SiNextdotjs,
-  SiVercel,
+  SiPhp,
   SiLaravel,
   SiHtml5,
   SiCss,
   SiJavascript,
+  SiTailwindcss,
+  SiTypescript,
+  SiMysql,
 } from 'react-icons/si'
 import { FaAws, FaMicrosoft } from 'react-icons/fa6'
 
@@ -33,10 +36,10 @@ const techs: Tech[] = [
     icon: (props) => <SiNextdotjs color="#ffffff" {...props} />,
   },
   {
-    name: 'Vercel',
-    color: '#ffffff',
-    bgColor: 'rgba(255,255,255,0.06)',
-    icon: (props) => <SiVercel color="#ffffff" {...props} />,
+    name: 'PHP',
+    color: '#777BB4',
+    bgColor: 'rgba(119,123,180,0.08)',
+    icon: (props) => <SiPhp color="#777BB4" {...props} />,
   },
   {
     name: 'AWS',
@@ -73,6 +76,24 @@ const techs: Tech[] = [
     color: '#F7DF1E',
     bgColor: 'rgba(247,223,30,0.08)',
     icon: (props) => <SiJavascript color="#F7DF1E" {...props} />,
+  },
+  {
+    name: 'Tailwind',
+    color: '#06B6D4',
+    bgColor: 'rgba(6,182,212,0.08)',
+    icon: (props) => <SiTailwindcss color="#06B6D4" {...props} />,
+  },
+  {
+    name: 'TypeScript',
+    color: '#3178C6',
+    bgColor: 'rgba(49,120,198,0.08)',
+    icon: (props) => <SiTypescript color="#3178C6" {...props} />,
+  },
+  {
+    name: 'MySQL',
+    color: '#4479A1',
+    bgColor: 'rgba(68,121,161,0.08)',
+    icon: (props) => <SiMysql color="#4479A1" {...props} />,
   },
 ]
 

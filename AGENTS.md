@@ -9,7 +9,7 @@
 | `npm run lint` | ESLint (config in `eslint.config.mjs`) |
 | `npm start` | start production build |
 
-Build order expectation: `lint → build`. Build also runs `tsc` typecheck.
+Build order: `lint → build`. Build includes `tsc` typecheck.
 
 ## Stack
 
@@ -40,7 +40,7 @@ src/
 ## Key conventions
 
 - **Single-page portfolio** — no routes beyond `/`
-- **Dark space theme** — background `#07071c`, accent purple `#7c3aed`
+- **Dark slate theme** — background `#0f172a`, accent sky blue `#38bdf8` (defined as CSS custom properties in `globals.css`)
 - **CSS animations** in `globals.css` (`.shooting-star`, `.reveal`, `.glass`)
 - **Scroll reveal** uses `IntersectionObserver` via `ScrollReveal` wrapper
 - **Tech logos** use `react-icons/si` and `react-icons/fa6` packages
