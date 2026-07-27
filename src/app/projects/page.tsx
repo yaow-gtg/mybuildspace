@@ -1,6 +1,26 @@
+import type { Metadata } from 'next'
 import StarField from '@/components/StarField'
 import ScrollReveal from '@/components/ScrollReveal'
 import ProjectsSection from '@/components/ProjectsSection'
+
+export const metadata: Metadata = {
+  title: 'Projects — Farhan Ridho Illahi',
+  description:
+    'A collection of projects built by Farhan Ridho Illahi — from fullstack apps to landing pages.',
+  alternates: {
+    canonical: '/projects',
+  },
+  openGraph: {
+    title: 'Projects — Farhan Ridho Illahi',
+    description:
+      'A collection of projects built by Farhan Ridho Illahi — from fullstack apps to landing pages.',
+  },
+  twitter: {
+    title: 'Projects — Farhan Ridho Illahi',
+    description:
+      'A collection of projects built by Farhan Ridho Illahi — from fullstack apps to landing pages.',
+  },
+}
 
 export default function ProjectsPage() {
   return (

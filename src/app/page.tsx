@@ -53,6 +53,21 @@ export default function Home() {
         </ScrollReveal>
       </section>
 
+      {/* Education */}
+      <section
+        id="education"
+        className="relative py-24 md:py-32 px-4"
+      >
+        <ScrollReveal>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 text-white">
+              Education
+            </h2>
+            <EducationSection />
+          </div>
+        </ScrollReveal>
+      </section>
+
       {/* Tech Stack */}
       <section
         id="tech"
@@ -79,21 +94,6 @@ export default function Home() {
               Projects
             </h2>
             <ProjectsSection limit={2} showSeeAll />
-          </div>
-        </ScrollReveal>
-      </section>
-
-      {/* Education */}
-      <section
-        id="education"
-        className="relative py-24 md:py-32 px-4"
-      >
-        <ScrollReveal>
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 text-white">
-              Education
-            </h2>
-            <EducationSection />
           </div>
         </ScrollReveal>
       </section>

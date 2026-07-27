@@ -9,7 +9,7 @@
 | `npm run lint` | ESLint (config in `eslint.config.mjs`) |
 | `npm start` | start production build |
 
-Build order: `lint → build`. Build includes `tsc` typecheck.
+Build order: `npm run lint ; if ($?) { npm run build }`
 
 ## Stack
 
@@ -18,31 +18,37 @@ Build order: `lint → build`. Build includes `tsc` typecheck.
 - **TypeScript 5** — strict mode, `@/*` alias → `./src/*`
 - **Tailwind CSS v4** — config via CSS `@theme` directive in `src/app/globals.css`, *not* `tailwind.config.*`
 - **PostCSS** via `@tailwindcss/postcss`
+- **Icons** — `react-icons/si` + `react-icons/fa6` packages
 
-## Structure
+## Project data
 
-```
-src/
-  app/            — App Router entries (layout, page, globals.css, icon.svg)
-    layout.tsx    — root layout, metadata, Geist font
-    page.tsx      — single portfolio page (server component, composes client components)
-    icon.svg      — favicon
-  components/     — 7 components, mix of server & client
-    StarField.tsx     — client: CSS-animated stars + shooting stars + nebula
-    ProfileAvatar.tsx — server: abstract SVG face portrait
-    TechStack.tsx     — client: 9 tech icons with 3D tilt + glow (react-icons/si + react-icons/fa6)
-    ProjectsSection.tsx — client: project link cards
-    ScrollReveal.tsx  — client: IntersectionObserver fade-in/slide-up
-    AboutSection.tsx  — server
-    EducationSection.tsx — server
-```
+- **`src/data/projects.ts`** — typed `Project[]` array; source of truth for project cards
+- **`public/images/`** — project screenshots referenced by `project.images`
+
+## Routes
+
+- **`/`** — main portfolio page (hero, about, tech stack, projects preview, education, footer)
+- **`/projects`** — full project listing page
+
+## Components (9 total, in `src/components/`)
+
+| Component | Type | Role |
+|---|---|---|
+| `Navbar.tsx` | client | fixed top nav, `/` and `/projects` links, active-state highlighting via `usePathname` |
+| `StarField.tsx` | client | 250+ CSS-animated stars, shooting stars, nebula glow (DOM injection via `useRef`) |
+| `ScrollReveal.tsx` | client | `IntersectionObserver` fade-in/slide-up wrapper |
+| `ImageLightbox.tsx` | client | fullscreen overlay via `createPortal`, escape-to-close |
+| `TechStack.tsx` | client | 9 tech icons with 3D tilt + glow |
+| `ProjectsSection.tsx` | client | renders project cards from `@/data/projects`, accepts `limit`/`showSeeAll` props |
+| `ProfileAvatar.tsx` | server | abstract SVG face portrait |
+| `AboutSection.tsx` | server | bio section |
+| `EducationSection.tsx` | server | diploma & bootcamp entries |
 
 ## Key conventions
 
-- **Single-page portfolio** — no routes beyond `/`
-- **Dark slate theme** — background `#0f172a`, accent sky blue `#38bdf8` (defined as CSS custom properties in `globals.css`)
+- **Dark slate theme** — background `#0f172a`, accent sky blue `#38bdf8` (CSS custom properties in `globals.css`)
 - **CSS animations** in `globals.css` (`.shooting-star`, `.reveal`, `.glass`)
 - **Scroll reveal** uses `IntersectionObserver` via `ScrollReveal` wrapper
-- **Tech logos** use `react-icons/si` and `react-icons/fa6` packages
 - **No env files** — `.env*` gitignored
 - **No unit tests** in this project
+- **Styling** uses Tailwind utility classes + `globals.css` keyframes; no separate CSS modules

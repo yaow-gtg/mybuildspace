@@ -14,7 +14,7 @@ export const projects: Project[] = [
       'Personal portfolio website showcasing projects, skills, and experience. Built with Next.js and Tailwind CSS featuring a cosmic dark theme.',
     url: 'https://mybuildspace.vercel.app',
     tags: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript'],
-    images: [],
+    images: ['/images/porto.png'],
     gradient: 'from-accent/20 to-accent-light/20',
   },
   {
