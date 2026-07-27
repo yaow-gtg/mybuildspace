@@ -30,7 +30,7 @@ Build order: `npm run lint ; if ($?) { npm run build }`
 - **`/`** — main portfolio page (hero, about, tech stack, projects preview, education, footer)
 - **`/projects`** — full project listing page
 
-## Components (9 total, in `src/components/`)
+## Components (10 total, in `src/components/`)
 
 | Component | Type | Role |
 |---|---|---|
@@ -40,6 +40,7 @@ Build order: `npm run lint ; if ($?) { npm run build }`
 | `ImageLightbox.tsx` | client | fullscreen overlay via `createPortal`, escape-to-close |
 | `TechStack.tsx` | client | 9 tech icons with 3D tilt + glow |
 | `ProjectsSection.tsx` | client | renders project cards from `@/data/projects`, accepts `limit`/`showSeeAll` props |
+| `Footer.tsx` | server | contact me bar with GitHub & Instagram links |
 | `ProfileAvatar.tsx` | server | abstract SVG face portrait |
 | `AboutSection.tsx` | server | bio section |
 | `EducationSection.tsx` | server | diploma & bootcamp entries |

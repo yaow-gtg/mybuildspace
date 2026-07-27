@@ -2,23 +2,21 @@ import type { Metadata } from 'next'
 import StarField from '@/components/StarField'
 import ScrollReveal from '@/components/ScrollReveal'
 import ProjectsSection from '@/components/ProjectsSection'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Projects — Farhan Ridho Illahi',
-  description:
-    'A collection of projects built by Farhan Ridho Illahi — from fullstack apps to landing pages.',
+  title: 'Projects',
+  description: 'All projects built by Farhan Ridho Illahi.',
   alternates: {
     canonical: '/projects',
   },
   openGraph: {
-    title: 'Projects — Farhan Ridho Illahi',
-    description:
-      'A collection of projects built by Farhan Ridho Illahi — from fullstack apps to landing pages.',
+    title: 'Projects',
+    description: 'All projects built by Farhan Ridho Illahi.',
   },
   twitter: {
-    title: 'Projects — Farhan Ridho Illahi',
-    description:
-      'A collection of projects built by Farhan Ridho Illahi — from fullstack apps to landing pages.',
+    title: 'Projects',
+    description: 'All projects built by Farhan Ridho Illahi.',
   },
 }
 
@@ -32,13 +30,12 @@ export default function ProjectsPage() {
             <h1 className="text-3xl md:text-5xl font-bold text-center mb-4 text-white">
               Projects
             </h1>
-            <p className="text-zinc-400 text-center mb-12 md:mb-16 max-w-lg mx-auto">
-              A collection of projects I&apos;ve built — from fullstack apps to landing pages.
-            </p>
+            <p className="text-zinc-400 text-center mb-12 md:mb-16 mx-auto">I work on various projects, from simple websites to complex web applications</p>
             <ProjectsSection />
           </div>
         </ScrollReveal>
       </section>
+      <Footer />
     </main>
   )
 }

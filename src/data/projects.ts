@@ -23,7 +23,7 @@ export const projects: Project[] = [
       'Professional website for an auto repair shop specializing in 4WD vehicles while also serving regular cars. Features service showcases, workshop information, and contact integration.',
     url: 'https://4wdspeedcenter.vercel.app/',
     images: ['/images/4wdspeedcenter.png'],
-    tags: ['Next.js', 'React', 'CSS', 'Vercel'],
+    tags: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript'],
     gradient: 'from-accent/20 to-accent-dark/20',
   },
   {
