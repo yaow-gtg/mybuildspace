@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function ProjectsSection({ limit, showSeeAll }: Props) {
-  const [lightbox, setLightbox] = useState<string | null>(null)
+  const [lightbox, setLightbox] = useState<{ images: string[]; index: number } | null>(null)
   const displayed = limit ? projects.slice(0, limit) : projects
 
   return (
@@ -22,36 +22,57 @@ export default function ProjectsSection({ limit, showSeeAll }: Props) {
             key={project.title}
             className="group glass rounded-xl p-5 md:p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(56,189,248,0.15)]"
           >
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <h3 className="text-xl font-bold text-white group-hover:text-accent-light transition-colors">
-                {project.title}
-              </h3>
-              <p className="text-sm text-zinc-300 mt-2 leading-relaxed">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-2 mt-4">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs px-2.5 py-1 rounded-full bg-zinc-800/80 text-zinc-300"
-                  >
-                    {tag}
-                  </span>
-                ))}
+            {project.url ? (
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <h3 className="text-xl font-bold text-white group-hover:text-accent-light transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-sm text-zinc-300 mt-2 leading-relaxed">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs px-2.5 py-1 rounded-full bg-zinc-800/80 text-zinc-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </a>
+            ) : (
+              <div className="block">
+                <h3 className="text-xl font-bold text-white transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-sm text-zinc-300 mt-2 leading-relaxed">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs px-2.5 py-1 rounded-full bg-zinc-800/80 text-zinc-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </a>
+            )}
 
             {project.images.length > 0 ? (
               <div className="flex flex-wrap gap-2 mt-4">
                 {project.images.map((img, i) => (
                   <button
                     key={i}
-                    onClick={() => setLightbox(img)}
+                    onClick={() => setLightbox({ images: project.images, index: i })}
                     className="w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 border-transparent hover:border-accent transition-colors"
                   >
                     <img src={img} alt="" className="w-full h-full object-cover" />
@@ -80,27 +101,46 @@ export default function ProjectsSection({ limit, showSeeAll }: Props) {
               </div>
             )}
 
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-4 text-sm text-accent opacity-0 group-hover:opacity-100 transition-opacity"
-            >
-              <span>Visit website</span>
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+            {project.url ? (
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-4 text-sm text-accent opacity-0 group-hover:opacity-100 transition-opacity"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </a>
+                <span>Visit website</span>
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+              </a>
+            ) : (
+              <span className="inline-flex items-center gap-2 mt-4 text-sm text-zinc-500 opacity-0 group-hover:opacity-100 transition-opacity cursor-not-allowed">
+                <span>URL not available</span>
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+              </span>
+            )}
           </div>
         ))}
       </div>
@@ -118,7 +158,13 @@ export default function ProjectsSection({ limit, showSeeAll }: Props) {
         </div>
       )}
       {lightbox && (
-        <ImageLightbox src={lightbox} onClose={() => setLightbox(null)} />
+        <ImageLightbox
+          images={lightbox.images}
+          currentIndex={lightbox.index}
+          onClose={() => setLightbox(null)}
+          onPrev={() => setLightbox(prev => prev && { ...prev, index: prev.index - 1 })}
+          onNext={() => setLightbox(prev => prev && { ...prev, index: prev.index + 1 })}
+        />
       )}
     </>
   )

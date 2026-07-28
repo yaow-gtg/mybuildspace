@@ -20,7 +20,7 @@ export default function Home() {
               Farhan Ridho Illahi
             </h1>
             <p className="text-base md:text-lg text-zinc-300 mt-4 max-w-xl text-left">
-              Computer Engineering Student & Fullstack Developer. Helping people through innovative and solution driven digital solutions
+              Computer Engineering Student. Helping people through innovative and solution driven digital solutions
             </p>
             <div className="flex justify-start gap-4 mt-8">
               <a

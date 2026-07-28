@@ -27,12 +27,18 @@ export const projects: Project[] = [
     gradient: 'from-accent/20 to-accent-dark/20',
   },
   {
-    title: 'Admin Dashboard',
+    title: 'Laptop Inventory & Sales Management System',
     description:
-      'Comprehensive admin panel with data visualization, user management, and role-based access control.',
-    url: 'https://dashboard-prod.netlify.app',
-    tags: ['React', 'Next.js', 'Azure', 'CSS'],
-    images: [],
+      'Laptop Inventory & Sales Management System is a full-stack web application for managing laptop stock, product catalogs, and sales transactions with real-time inventory tracking. It features a public catalog with search and filtering, an admin dashboard for CRUD operations, automated stock deduction on sales, and Excel-based sales report exports.',
+    url: '',
+    tags: ['Laravel', 'React', 'Tailwind CSS', 'PHP', 'MySQL'],
+    images: [
+      '/images/pembelian.png',
+      '/images/monitoring.png',
+      '/images/kelola.png',
+      '/images/merek.png',
+      '/images/penjualan.png',
+    ],
     gradient: 'from-accent/20 to-accent-dark/20',
   },
   {
