@@ -16,11 +16,11 @@ Build order: `npm run lint ; if ($?) { npm run build }`
 - **Next.js 16.2.11** (App Router, Turbopack for dev/build)
 - **React 19.2.4** with React Compiler enabled (`reactCompiler: true` in `next.config.ts`)
 - **TypeScript 5** — strict mode, `@/*` alias → `./src/*`
-- **Tailwind CSS v4** — configured via `@theme` in `src/app/globals.css`, *not* a JS config file
+- **Tailwind CSS v4** — configured via `@theme inline` in `src/app/globals.css`, *not* a JS config file; custom tokens become utilities (`bg-accent`, `text-accent-dark`, …)
 - **PostCSS** via `@tailwindcss/postcss`
 - **Icons** — `react-icons/si` + `react-icons/fa6`
 - **Fonts** — Geist Sans + Geist Mono via `next/font/google` in `layout.tsx`
-- **Deploy** — Vercel (hardcoded URL `https://mybuildspace.vercel.app` in `layout.tsx`, `sitemap.ts`, `robots.ts`)
+- **Deploy** — Vercel (hardcoded URL `https://mybuildspace.vercel.app` in `layout.tsx`, `sitemap.ts`, `robots.ts`) — update all three if the URL changes
 
 ## Project data
 
@@ -31,6 +31,12 @@ Build order: `npm run lint ; if ($?) { npm run build }`
 
 - **`/`** — main portfolio page (hero, about, tech stack, projects preview, education, footer)
 - **`/projects`** — full project listing page
+- **`/contact`** — contact cards (email, WhatsApp, GitHub, Instagram)
+
+## App Router special files (`src/app/`)
+
+- `icon.svg` — favicon
+- `opengraph-image.tsx` — dynamic OG image via `next/og` `ImageResponse` (1200×630, dark theme)
 
 ## Components (`src/components/`)
 
@@ -43,7 +49,7 @@ Build order: `npm run lint ; if ($?) { npm run build }`
 | `TechStack.tsx` | client | 12 tech icons with 3D tilt + glow on hover |
 | `ProjectsSection.tsx` | client | renders cards from `@/data/projects`, accepts `limit`/`showSeeAll` props |
 | `Footer.tsx` | server | contact bar with GitHub & Instagram links |
-| `ProfileAvatar.tsx` | server | abstract SVG face portrait |
+| `ProfileAvatar.tsx` | server | circular profile photo from `public/avatar-profile.jpg` |
 | `AboutSection.tsx` | server | bio section |
 | `EducationSection.tsx` | server | diploma & bootcamp entries |
 

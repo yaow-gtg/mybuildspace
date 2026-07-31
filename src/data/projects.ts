@@ -42,11 +42,11 @@ export const projects: Project[] = [
     gradient: 'from-accent/20 to-accent-dark/20',
   },
   {
-    title: 'E-Commerce Platform',
+    title: 'Attendance Management System (In Progress)',
     description:
-      'Full-featured online store with payment gateway, inventory management, and real-time analytics dashboard.',
-    url: 'https://ecommerce-demo.vercel.app',
-    tags: ['Next.js', 'React', 'Laravel', 'AWS'],
+      'An attendance tracking system for recording and managing student attendance records with real-time reporting. Currently under development.',
+    url: '',
+    tags: ['Laravel', 'PHP', 'MySQL'],
     images: [],
     gradient: 'from-accent-light/20 to-accent-dark/20',
   },
