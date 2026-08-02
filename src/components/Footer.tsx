@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FaGithub, FaInstagram, FaWhatsapp } from 'react-icons/fa6'
+import { FaInstagram, FaWhatsapp } from 'react-icons/fa6'
 
 export default function Footer() {
   return (
@@ -20,15 +20,6 @@ export default function Footer() {
             title="WhatsApp"
           >
             <FaWhatsapp className="text-lg" />
-          </a>
-          <a
-            href="https://github.com/yaow-gtg"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-zinc-400 hover:text-accent transition-all duration-200 hover:scale-125"
-            title="GitHub"
-          >
-            <FaGithub className="text-lg" />
           </a>
           <a
             href="https://www.instagram.com/farhanrii"

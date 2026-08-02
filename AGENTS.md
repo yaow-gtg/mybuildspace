@@ -20,7 +20,7 @@ Build order: `npm run lint ; if ($?) { npm run build }`
 - **PostCSS** via `@tailwindcss/postcss`
 - **Icons** — `react-icons/si` + `react-icons/fa6`
 - **Fonts** — Geist Sans + Geist Mono via `next/font/google` in `layout.tsx`
-- **Deploy** — Vercel (hardcoded URL `https://mybuildspace.vercel.app` in `layout.tsx`, `sitemap.ts`, `robots.ts`) — update all three if the URL changes
+- **Deploy** — Vercel (hardcoded URL `https://mybuildspace.vercel.app` in `layout.tsx`, `sitemap.ts`, `robots.ts`, and `src/data/projects.ts`) — update all four if the URL changes
 
 ## Project data
 
@@ -59,6 +59,7 @@ Build order: `npm run lint ; if ($?) { npm run build }`
 - **CSS animations** in `globals.css` (`.shooting-star`, `.reveal`, `.glass`)
 - **Scroll reveal** uses `IntersectionObserver` via `ScrollReveal` wrapper
 - **Styling** uses Tailwind utility classes + `globals.css` keyframes; no CSS modules
+- **Images** use plain `<img>` tags (`ProjectsSection`, `ImageLightbox`), not `next/image`
 - **No env files** — `.env*` gitignored
 - **No unit tests** — no test framework in dependencies
 - **No CI** — no `.github/` directory; lint + build are manual

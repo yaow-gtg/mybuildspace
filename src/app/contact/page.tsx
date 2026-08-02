@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { FaEnvelope, FaGithub, FaInstagram, FaWhatsapp } from 'react-icons/fa6'
+import { FaEnvelope, FaInstagram, FaWhatsapp } from 'react-icons/fa6'
 import StarField from '@/components/StarField'
 import ScrollReveal from '@/components/ScrollReveal'
 import Footer from '@/components/Footer'
@@ -32,12 +32,6 @@ const contacts = [
     value: '6281360847245',
     href: 'https://wa.me/6281360847245',
     icon: <FaWhatsapp className="text-lg" />,
-  },
-  {
-    label: 'GitHub',
-    value: 'github.com/yaow-gtg',
-    href: 'https://github.com/yaow-gtg',
-    icon: <FaGithub className="text-lg" />,
   },
   {
     label: 'Instagram',

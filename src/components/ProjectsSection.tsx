@@ -10,6 +10,8 @@ interface Props {
   showSeeAll?: boolean
 }
 
+const PREVIEW_LIMIT = 4
+
 export default function ProjectsSection({ limit, showSeeAll }: Props) {
   const [lightbox, setLightbox] = useState<{ images: string[]; index: number } | null>(null)
   const displayed = limit ? projects.slice(0, limit) : projects
@@ -69,7 +71,7 @@ export default function ProjectsSection({ limit, showSeeAll }: Props) {
 
             {project.images.length > 0 ? (
               <div className="flex flex-wrap gap-2 mt-4">
-                {project.images.map((img, i) => (
+                {project.images.slice(0, PREVIEW_LIMIT).map((img, i) => (
                   <button
                     key={i}
                     onClick={() => setLightbox({ images: project.images, index: i })}
@@ -78,6 +80,21 @@ export default function ProjectsSection({ limit, showSeeAll }: Props) {
                     <img src={img} alt="" className="w-full h-full object-cover" />
                   </button>
                 ))}
+                {project.images.length > PREVIEW_LIMIT && (
+                  <button
+                    onClick={() => setLightbox({ images: project.images, index: PREVIEW_LIMIT })}
+                    className="relative w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 border-transparent hover:border-accent transition-colors"
+                  >
+                    <img
+                      src={project.images[PREVIEW_LIMIT]}
+                      alt=""
+                      className="w-full h-full object-cover opacity-40 blur-[1px]"
+                    />
+                    <span className="absolute inset-0 flex items-center justify-center bg-black/40 text-accent font-semibold">
+                      +{project.images.length - PREVIEW_LIMIT}
+                    </span>
+                  </button>
+                )}
               </div>
             ) : (
               <div
